@@ -1,9 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+/* Reset */
 * {
   box-sizing: border-box;
 }
 
+/* Common */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Components */
 .App {
   font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f2;
+  color: #222;
+}
+
+.mobile-plan {
+  background-color: #fff;
+  /* temporary */
+  max-width: 280px;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.plan__header {
+  font-weight: normal;
+  margin-top: 0;
+  color: rgb(151, 151, 151);
+}
+
+.plan__dataAllow {
+  margin-bottom: 0;
+}
+
+.plan__dataEU {
+  font-size: 0.7rem;
+}
+
+.plan__min-sms {
+  font-size: 1rem;
+}
+
+.plan__bottom {
+  display: flex;
+  align-items: center;
+}
+
+.bottom__price-part {
+  width: 50%;
+}
+
+.bottom__price {
+  margin-bottom: 0;
+}
+
+.bottom__price span {
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+.bottom__term {
+  font-size: 0.8rem;
+  color: rgb(151, 151, 151);
+}
+
+.plan__cta {
+  width: 50%;
+  background-color: #990ae3;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.4rem;
+  color: #fff;
+  font-weight: bold;
 }
