@@ -1,7 +1,8 @@
 const CustomRadio = (props) => {
   return (
-    <div className="radio">
-      <span>Not selected</span>
+    <div onClick={props.onClick} className="radio-container">
+      {props.checked ? <strong>Selected</strong> : <strong>Not selected</strong>}
+      <span> {props.children}</span>
     </div>
   );
 };
