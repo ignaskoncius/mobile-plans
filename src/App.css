@@ -12,6 +12,11 @@
   margin: 0 auto;
 }
 
+.d-flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
 /* Components */
 .App {
   font-family: 'Roboto', sans-serif;
@@ -19,6 +24,7 @@
   color: #222;
 }
 
+/* Mobile plan component */
 .mobile-plan {
   background-color: #fff;
   /* temporary */
@@ -98,4 +104,17 @@
   padding: 0.6rem 1.4rem;
   color: #fff;
   font-weight: bold;
+}
+
+/* Commitment component */
+
+.commitment-component {
+  display: flex;
+  gap: 2px;
+  width: 50%;
+}
+
+.c__selection {
+  background-color: rgba(34, 34, 34, 0.04);
+  flex-basis: 50%;
 }
