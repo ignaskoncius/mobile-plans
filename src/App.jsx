@@ -8,9 +8,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      noCommitment: false,
+      beIsipareigojimu: true,
     };
   }
+
+  handleRadio = (value) => {
+    if (value === 'commit') {
+      this.setState({ beIsipareigojimu: false });
+    } else {
+      this.setState({ beIsipareigojimu: true });
+    }
+  };
 
   render() {
     return (
@@ -19,7 +27,7 @@ class App extends Component {
           <h1>Mobiliojo ryšio planai</h1>
           <p>Visos Lietuvoje turimo plano naudos galioja Baltijos ir Skandinavijos šalyse.</p>
           <div className="controls d-flex">
-            <Commitment noCommitment={this.state.noCommitment} />
+            <Commitment handleRadio={this.handleRadio} noCommitment={this.state.beIsipareigojimu} />
             <HaveServices />
           </div>
           <main className="plan-cards">
