@@ -24,6 +24,10 @@
   color: #222;
 }
 
+.controls {
+  margin-bottom: 0.7rem;
+}
+
 /* Mobile plan component */
 .mobile-plan {
   background-color: #fff;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import Commitment from './components/commitment';
 import HaveServices from './components/haveServices';
 import MobilePlan from './components/mobilePlan';
@@ -9,7 +10,17 @@ class App extends Component {
     super(props);
     this.state = {
       beIsipareigojimu: true,
+      mobile1: {},
     };
+  }
+
+  async componentDidMount() {
+    try {
+      const result = await axios.get('/data/plan1.json');
+      console.log(result.data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   handleRadio = (value) => {
