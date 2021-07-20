@@ -3,34 +3,36 @@ import ListImage from '../static/check.png';
 
 class MobilePlan extends Component {
   render() {
+    const { headerTitle, dataAlowed, dataEU, minSms, ctaButton, price, contractLength, features, period } =
+      this.props.plan;
     return (
       <div className="mobile-plan">
-        <h5 className="plan__header">Mobilus START 1</h5>
-        <h2 className="plan__dataAllow">1 GB</h2>
-        <small className="plan__dataEU">Iš jų 1 GB ES/EEE</small>
-        <p className="plan__min-sms">Neribotos MIN ir SMS</p>
+        <h5 className="plan__header">{headerTitle}</h5>
+        <h2 className="plan__dataAllow">{dataAlowed} GB</h2>
+        <small className="plan__dataEU">Iš jų {dataEU} GB ES/EEE</small>
+        <p className="plan__min-sms">{minSms}</p>
         <div className="plan__features">
           <div className="hr"></div>
           <ul className="features__list">
-            <li>
-              <img className="features__check" src={ListImage} alt="check" />
-              <span>M. parašas (6 mėn.)</span>
-            </li>
-            <li>
-              <img className="features__check" src={ListImage} alt="check" />
-              <span>Įrangos draudimas (3 mėn.)</span>
-            </li>
+            {features?.length > 0 &&
+              features.map((f) => (
+                <li key={f.title}>
+                  <img className="features__check" src={ListImage} alt="check" />
+                  <span>{f.title}</span>
+                </li>
+              ))}
           </ul>
           <div className="hr"></div>
         </div>
         <div className="plan__bottom">
           <div className="bottom__price-part">
             <h3 className="bottom__price">
-              9,00 <span>€/men</span>
+              {/* {price && price.commitment} <span>€/men</span> */}
+              {price?.commitment} <span>€/{period}</span>
             </h3>
-            <small className="bottom__term">24 mėn. sutartis</small>
+            <small className="bottom__term">{contractLength?.commitment}</small>
           </div>
-          <button className="plan__cta">Domina</button>
+          <button className="plan__cta">{ctaButton}</button>
         </div>
       </div>
     );

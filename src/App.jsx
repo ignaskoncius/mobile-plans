@@ -17,7 +17,8 @@ class App extends Component {
   async componentDidMount() {
     try {
       const result = await axios.get('/data/plan1.json');
-      console.log(result.data);
+      this.setState({ mobile1: result.data });
+      // console.log(this.state.mobile1);
     } catch (err) {
       console.log(err);
     }
@@ -42,7 +43,7 @@ class App extends Component {
             <HaveServices />
           </div>
           <main className="plan-cards">
-            <MobilePlan />
+            <MobilePlan plan={this.state.mobile1} isipareigojimai={this.state.beIsipareigojimu} />
           </main>
         </div>
       </div>
