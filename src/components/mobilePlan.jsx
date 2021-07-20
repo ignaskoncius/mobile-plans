@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ListImage from '../static/check.png';
 
 class MobilePlan extends Component {
+  formatPrice(price) {
+    return price?.toFixed(2);
+  }
+
   render() {
     const { headerTitle, dataAlowed, dataEU, minSms, ctaButton, price, contractLength, features, period } =
       this.props.plan;
@@ -28,9 +32,14 @@ class MobilePlan extends Component {
           <div className="bottom__price-part">
             <h3 className="bottom__price">
               {/* {price && price.commitment} <span>€/men</span> */}
-              {this.props.beIsipareigojimu ? price?.noCommitment : price?.commitment} <span>€/{period}</span>
+              {this.props.beIsipareigojimu
+                ? this.formatPrice(price?.noCommitment)
+                : this.formatPrice(price?.commitment)}
+              <span>€/{period}</span>
             </h3>
-            <small className="bottom__term">{contractLength?.commitment}</small>
+            <small className="bottom__term">
+              {this.props.beIsipareigojimu ? contractLength?.noCommitment : contractLength?.commitment}
+            </small>
           </div>
           <button className="plan__cta">{ctaButton}</button>
         </div>

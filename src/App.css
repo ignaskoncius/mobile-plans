@@ -29,6 +29,13 @@
 }
 
 /* Mobile plan component */
+
+.plan-cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .mobile-plan {
   background-color: #fff;
   /* temporary */

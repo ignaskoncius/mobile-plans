@@ -11,13 +11,14 @@ class App extends Component {
     this.state = {
       beIsipareigojimu: true,
       mobile1: {},
+      allPlans: [],
     };
   }
 
   async componentDidMount() {
     try {
-      const result = await axios.get('/data/plan1.json');
-      this.setState({ mobile1: result.data });
+      const result = await axios.get('/data/allPlans.json');
+      this.setState({ allPlans: result.data });
       // console.log(this.state.mobile1);
     } catch (err) {
       console.log(err);
@@ -43,7 +44,9 @@ class App extends Component {
             <HaveServices />
           </div>
           <main className="plan-cards">
-            <MobilePlan plan={this.state.mobile1} beIsipareigojimu={this.state.beIsipareigojimu} />
+            {this.state.allPlans.map((plan) => (
+              <MobilePlan key={plan.headerTitle} plan={plan} beIsipareigojimu={this.state.beIsipareigojimu} />
+            ))}
           </main>
         </div>
       </div>
